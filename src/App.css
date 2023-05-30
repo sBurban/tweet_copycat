@@ -1,42 +1,66 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.app_body{
+    /* background: #eee; */
+    width: 60%;
+    margin: 0 auto;
+}
+.tweets_wrapper{
+    border: 1px solid #f0f0f0;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.tweet{
+    border: 1px solid #f0f0f0;
+    padding: 0.5rem 2rem;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.tweet_header{
+    display: flex;
+    /* justify-content: space-between; */
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.tweet_header svg{
+    font-size: 1.6rem;
+}
+.tweet_body{
+
+}
+.tweet_controls{
+    display: flex;
+    justify-content: space-between;
+}
+.tweet_controls__group{
+    display: flex;
+    justify-content: space-around;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.tweet_name{
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+.tweet_username{
+    font-size: 1.2rem;
+    color: rgb(93, 89, 89);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.tweet_controls__icon{
+    font-size: 1.2rem;
+    padding: 0.2rem;
+    margin: 0 0.5rem;
 }
 
-.card {
-  padding: 2em;
+.tweet_controls__edit{
+    margin: 0 0.5rem 0 1rem;
+}
+.tweet_controls__delete{
+
+}
+.tweet_controls__comment{
+
+}
+.tweet_controls__like{
+
+}
+.tweet_controls__share{
+
 }
 
-.read-the-docs {
-  color: #888;
+.tweet_timestamp{
+
 }
