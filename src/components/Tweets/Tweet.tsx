@@ -16,8 +16,8 @@ const Tweet = ({content}:TweetProps) => {
     <div className='tweet'>
         <div className='tweet_header'>
             <FaUserCircle />
-            <span className='tweet_name'> {content.name} </span>
-            <span className='tweet_username'> @{content.username} </span>
+            <span className='tweet_name'>{content.name}</span>
+            <span className='tweet_username'>@{content.username}</span>
         </div>
         <div className='tweet_body'>
             <p>{content.message}</p>

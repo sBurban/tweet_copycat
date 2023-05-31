@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { TweetMsg } from '../../common/Types';
 import Tweet from './Tweet';
-
+import Spinner from '../Spinner';
 
 import '../../App.css'
 
@@ -17,9 +17,10 @@ const Tweet_list = ({data}:Tweet_listProps) => {
 
     return (
     <div className='tweets_wrapper'>
+        {/* <Spinner message={"Loading..."} /> */}
         {data.length > 0 ?
             tweetslist
-            : <div> loading...</div>
+            : <Spinner message={"Loading..."} />
         }
     </div>);
 }
