@@ -43,6 +43,9 @@ function App() {
   }
 
   const editTweet = (e:React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const target = e.currentTarget;
+    const txtVal = target.new_message.value;
     return;
   }
 
