@@ -13,7 +13,6 @@ import Post from './components/Post';
 //1 delete function
 
 
-
 function App() {
   const [data, setData] = useState<TweetMsg[]>([]);
   const default_timestamp = FormatDate();
@@ -26,12 +25,28 @@ function App() {
       });
       setData(addTimestamps);
     }, waitTime);
-  }, [data.length])
+  }, [])
+
+  const addTweetToList = (e:React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const target = e.currentTarget;
+    const txtVal = target.new_message.value;
+
+    const newTweet = {
+      name: "anonymous",
+      username: "anonymous",
+      isDeleted: false,
+      timestamp: default_timestamp,
+      message: txtVal
+    };
+    setData([...data, newTweet]);
+
+  }
 
 
   return (
     <div className='app_body'>
-      <Post />
+      <Post handleSubmit={addTweetToList} />
       <Tweet_list data={data} />
     </div>
   );

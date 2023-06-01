@@ -12,7 +12,7 @@ type Tweet_listProps = {
 const Tweet_list = ({data}:Tweet_listProps) => {
 
     const tweetslist = data.map((twt, i) => {
-        return <Tweet content={twt} />
+        return <Tweet key={i} content={twt} />
     });
 
     return (
