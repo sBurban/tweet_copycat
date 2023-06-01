@@ -38,4 +38,8 @@ const Tweet = ({content}:TweetProps) => {
     );
 }
 
+const DeleteButton = () => {
+    return <></>;
+};
+
 export default Tweet;

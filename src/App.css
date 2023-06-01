@@ -1,6 +1,7 @@
 html{
-    --color-main: #788cff;
+    --color-main: #2745f3e0;
     --color-main-50: #788cff7d;
+    --color-main-90: #788cff7d;
     --color-secondary: #333;
 
     --color-tertiary: #f0f0f0;
@@ -57,15 +58,14 @@ html{
     background-color: var(--color-main);
     color: #fff;
     font-size: 1.2rem;
-    border: 0.2rem solid var(--color-main);
+    border: none
 }
-.tweet_form button:focus,
-.tweet_form button:hover{
+
+.tweet_form button:hover:not(:disabled){
     border: 0.2rem solid var(--color-secondary);
 }
 .tweet_form button:disabled{
     background-color: var(--color-main-50);
-    border: none;
 }
 
 

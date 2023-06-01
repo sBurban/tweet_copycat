@@ -39,8 +39,15 @@ function App() {
       timestamp: default_timestamp,
       message: txtVal
     };
-    setData([...data, newTweet]);
+    setData([ newTweet, ...data]);
+  }
 
+  const editTweet = (e:React.FormEvent<HTMLFormElement>) => {
+    return;
+  }
+
+  const deleteTweet = (e:React.MouseEventHandler<HTMLButtonElement>) => {
+    return;
   }
 
 
