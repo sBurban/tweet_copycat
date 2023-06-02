@@ -33,6 +33,7 @@ function App() {
     const txtVal = target.new_message.value;
 
     const newTweet = {
+      id: data.length,
       name: "anonymous",
       username: "anonymous",
       isDeleted: false,
@@ -57,7 +58,11 @@ function App() {
   return (
     <div className='app_body'>
       <Post handleSubmit={addTweetToList} />
-      <Tweet_list data={data} />
+      <Tweet_list
+        data={data}
+        editTweet={editTweet}
+        deleteTweet={deleteTweet}
+      />
     </div>
   );
 }

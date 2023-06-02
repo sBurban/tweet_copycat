@@ -6,13 +6,16 @@ import Spinner from '../Spinner';
 import '../../App.css'
 
 type Tweet_listProps = {
-    data: TweetMsg[]
+    data: TweetMsg[],
+    editTweet: () => void,
+    deleteTweet: () => void,
 }
 
-const Tweet_list = ({data}:Tweet_listProps) => {
+const Tweet_list = ({data,editTweet, deleteTweet}:Tweet_listProps) => {
 
     const tweetslist = data.map((twt, i) => {
-        return <Tweet key={i} content={twt} />
+        return <Tweet key={twt.id} content={twt} editTweet={editTweet} deleteTweet={deleteTweet} />
+        // return <Tweet key={i} content={twt} />
     });
 
     return (

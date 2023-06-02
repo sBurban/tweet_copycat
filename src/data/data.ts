@@ -3,6 +3,7 @@ const DUMMY_MSG= "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aene
 
 const tweets = [
     {
+        id: 0,
         name: "Filo Soraptor",
         username: "filosoraptor",
         isDeleted: false,
@@ -10,6 +11,7 @@ const tweets = [
         message: DUMMY_MSG
     },
     {
+        id: 1,
         name: "jOHN dOE",
         username: "johndoe27",
         isDeleted: false,
@@ -17,6 +19,7 @@ const tweets = [
         message: DUMMY_MSG
     },
     {
+        id: 2,
         name: "Alice Oreilly",
         username: "aliceo222",
         isDeleted: false,
@@ -24,6 +27,7 @@ const tweets = [
         message: DUMMY_MSG
     },
     {
+        id: 3,
         name: "Fulanito Perez",
         username: "elfulanito001",
         isDeleted: false,

@@ -8,7 +8,7 @@ type PostProps = {
     handleDelete: (e:React.MouseEvent<HTMLButtonElement>) => void,
 }
 
-const Edit = ({handleSubmit, handleDelete}:PostProps) => {
+const Edit = ({initValue,handleSubmit, handleDelete}:PostProps) => {
     const [message, setMessage] = useState("");
 
     return (
