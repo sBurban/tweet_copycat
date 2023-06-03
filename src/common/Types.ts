@@ -6,3 +6,8 @@ export type TweetMsg = {
     timestamp: string,
     message: string
 }
+
+export type TweetEventProps = {
+    e:React.MouseEvent<HTMLButtonElement>,
+    tweet:TweetMsg
+}

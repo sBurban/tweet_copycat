@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { TweetMsg } from '../../common/Types';
+import { TweetMsg,TweetEventProps } from '../../common/Types';
 import Tweet from './Tweet';
 import Spinner from '../Spinner';
 
@@ -7,8 +7,8 @@ import '../../App.css'
 
 type Tweet_listProps = {
     data: TweetMsg[],
-    editTweet: () => void,
-    deleteTweet: () => void,
+    editTweet: (e:React.FormEvent<HTMLFormElement>, tweet:TweetMsg) => void,
+    deleteTweet: (e:React.MouseEvent<HTMLButtonElement|HTMLDivElement>, tweet:TweetMsg) => void,
 }
 
 const Tweet_list = ({data,editTweet, deleteTweet}:Tweet_listProps) => {

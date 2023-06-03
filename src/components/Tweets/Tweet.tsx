@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { TweetMsg } from '../../common/Types';
+import { TweetMsg,TweetEventProps } from '../../common/Types';
 import { FaUserCircle,FaEdit,FaRegTrashAlt,FaRegComment,FaRegHeart,FaRetweet } from 'react-icons/fa';
 import Edit from '../Edit';
 
@@ -7,8 +7,8 @@ import '../../App.css'
 
 type TweetProps = {
     content: TweetMsg,
-    editTweet: () => void,
-    deleteTweet: () => void,
+    editTweet: (e:React.FormEvent<HTMLFormElement>, tweet:TweetMsg) => void,
+    deleteTweet: (e:React.MouseEvent<HTMLButtonElement|HTMLDivElement>, tweet:TweetMsg) => void,
 }
 
 const Tweet = ({content, editTweet,deleteTweet}:TweetProps) => {
@@ -16,12 +16,30 @@ const Tweet = ({content, editTweet,deleteTweet}:TweetProps) => {
 
     if(content.isDeleted) return <></>;
 
+    const handleCancel = (e:React.MouseEvent<HTMLButtonElement>) => {
+        setIsEdit(false);
+    }
+
+    const handleDelete = (e:React.MouseEvent<HTMLButtonElement|HTMLDivElement>) => {
+        deleteTweet(e,content);
+        setIsEdit(false);
+    }
+
+    const handleSubmit = (e:React.FormEvent<HTMLFormElement>) => {
+        editTweet(e, content)
+        setIsEdit(false);
+    }
+
     const tweetBody = isEdit?
-    <Edit
-        initValue={content.message}
-        handleSubmit={editTweet}
-        handleDelete ={deleteTweet}
-    />
+    <>
+        <Edit
+            content={content}
+            handleSubmit={handleSubmit}
+            handleCancel ={handleCancel}
+            // handleSubmit={editTweet}
+            // handleDelete ={deleteTweet}
+        />
+    </>
     :
     <>
         <div className='tweet_header'>
@@ -34,8 +52,12 @@ const Tweet = ({content, editTweet,deleteTweet}:TweetProps) => {
         </div>
         <div className='tweet_controls'>
             <div className='tweet_controls__group'>
-                <div className='tweet_controls__icon tweet_controls__edit'> <FaEdit /> </div>
-                <div className='tweet_controls__icon tweet_controls__delete'> <FaRegTrashAlt /> </div>
+                <div className='tweet_controls__icon tweet_controls__edit'
+                    onClick={() => setIsEdit(true)}
+                > <FaEdit /> </div>
+                <div className='tweet_controls__icon tweet_controls__delete'
+                    onClick={(e:React.MouseEvent<HTMLDivElement>) => handleDelete(e)}
+                > <FaRegTrashAlt /> </div>
             </div>
             <div className='tweet_controls__group'>
                 <div className='tweet_controls__icon tweet_controls__comment'> <FaRegComment /> </div>

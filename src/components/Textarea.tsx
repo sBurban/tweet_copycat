@@ -24,9 +24,9 @@ const Textarea = ({id, name, placeholder, initValue="", propsFunction}:TextareaE
     return <>
         <div className='form_group form_group_textarea'>
             <textarea
-                id="new_message"
-                name="new_message"
-                placeholder='My thoughts for today are...'
+                id={id}
+                name={name}
+                placeholder={placeholder}
                 value={message}
                 onChange={handleMessage}
             ></textarea>
