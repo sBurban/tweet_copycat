@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { TweetMsg,TweetEventProps } from '../../common/Types';
+import { TweetMsg } from '../../common/Types';
 import Tweet from './Tweet';
 import Spinner from '../Spinner';
 

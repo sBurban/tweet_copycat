@@ -22,7 +22,7 @@ const currentDate = () => {
 
     // Create the formatted date string
     const formattedDate = `${month} ${day}, ${year} ${hours}:${minutes.toString().padStart(2, '0')} ${amPm}`;
-    console.log(formattedDate);
+    // console.log(formattedDate);
     return formattedDate;
 };
 

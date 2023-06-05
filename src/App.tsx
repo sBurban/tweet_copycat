@@ -1,26 +1,26 @@
 import { useState, useEffect } from 'react'
 import './App.css'
+import useTweetlist from './hooks/useTweetlist';
+
 import FormatDate from './utils/FormatDate';
-import Jsondata from './data/data';
-import { TweetMsg,TweetEventProps } from './common/Types';
+import { TweetMsg } from './common/Types';
 
 import Tweet_list from './components/Tweets/Tweet_list';
 import Post from './components/Post';
 
 
 function App() {
-  const [data, setData] = useState<TweetMsg[]>([]);
-  const default_timestamp = FormatDate();
-  const waitTime = 500;
+  const {tweetList, error} = useTweetlist();
+  const [data, setData] = useState<TweetMsg[]>(tweetList);
 
   useEffect(() => {
-    setTimeout(() => {
-      const addTimestamps = Jsondata.map(r => {
-        return {...r, timestamp: default_timestamp}
-      });
-      setData(addTimestamps);
-    }, waitTime);
-  }, [])
+    setData(tweetList)
+  }, [tweetList.length])
+
+
+  // const [tweetList, setTweetList] = useState<TweetMsg[]>([]);
+  const default_timestamp = FormatDate();
+
 
   const addTweetToList = (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import '../App.css'
 import Textarea from './Textarea';
-import { TweetMsg,TweetEventProps } from '../common/Types';
+import { TweetMsg } from '../common/Types';
 
 type PostProps = {
     content: TweetMsg,
