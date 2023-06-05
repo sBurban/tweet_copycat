@@ -14,7 +14,7 @@ import { ActionTypes } from './store/tweetsReducer';
 function App() {
   const {tweetList, error} = useTweetlist();
   // const [data, setData] = useState<TweetMsg[]>(tweetList);
-  const [state, dispatch] = useReducer(TweetsReducer, {data:tweetList});
+  const [state, dispatch] = useReducer(TweetsReducer, tweetList);
 
   useEffect(() => {
     dispatch({type: ActionTypes.SET_TWEETS, data: tweetList});
@@ -45,7 +45,7 @@ function App() {
     <div className='app_body'>
       <Post postTweet={addTweetToList} />
       <Tweet_list
-        data={state.data}
+        data={state}
         editTweet={editTweet}
         deleteTweet={deleteTweet}
       />
