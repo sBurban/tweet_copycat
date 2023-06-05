@@ -19,7 +19,6 @@ type Action = {type:ActionTypes.SET_TWEETS, data: TweetMsg[]}
 
 
 const TweetsReducer = (state:TweetlistState, action:Action):TweetlistState => {
-// const TweetsReducer = (state:TweetMsg[], action:Action) => {
     if(ActionTypes.SET_TWEETS == action.type){
         console.log("🚀 ~ file: tweetsReducer.ts:24 ~ //TweetsReducer ~ ActionTypes.SET_TWEETS:", ActionTypes.SET_TWEETS)
         return {...state, data: action.data};
@@ -38,7 +37,6 @@ const TweetsReducer = (state:TweetlistState, action:Action):TweetlistState => {
             ...state,
             data: [newTweet, ...state.data]
         };
-        // return [ newTweet, ...state];
     }
     if (ActionTypes.EDIT_TWEET == action.type) {
         console.log("🚀 ~ file: tweetsReducer.ts:44 ~ //TweetsReducer ~ ActionTypes.EDIT_TWEET:", ActionTypes.EDIT_TWEET)
@@ -54,7 +52,6 @@ const TweetsReducer = (state:TweetlistState, action:Action):TweetlistState => {
             ...state,
             data: reformatList
         }
-        // return reformatList;
     }
     if (ActionTypes.DELETE_TWEET == action.type) {
         console.log("🚀 ~ file: tweetsReducer.ts:60 ~ //TweetsReducer ~ ActionTypes.DELETE_TWEET:", ActionTypes.DELETE_TWEET)
@@ -66,7 +63,6 @@ const TweetsReducer = (state:TweetlistState, action:Action):TweetlistState => {
             ...state,
             data: reformatList
         }
-        // return reformatList;
     }
 
     return state;

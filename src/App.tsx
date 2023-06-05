@@ -1,8 +1,7 @@
-import { useState, useEffect, useMemo, useReducer } from 'react'
+import { useState, useEffect, useReducer } from 'react'
 import './App.css'
 import useTweetlist from './hooks/useTweetlist';
 
-// import FormatDate from './utils/FormatDate';
 import { TweetMsg } from './common/Types';
 
 import Tweet_list from './components/Tweets/Tweet_list';
@@ -13,7 +12,6 @@ import { ActionTypes } from './store/tweetsReducer';
 
 function App() {
   const {tweetList, error} = useTweetlist();
-  // const [data, setData] = useState<TweetMsg[]>(tweetList);
   const [state, dispatch] = useReducer(TweetsReducer, {data:tweetList});
 
   useEffect(() => {
