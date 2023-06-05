@@ -2,24 +2,14 @@ import { useState } from "react";
 import '../App.css'
 
 interface TextareaElem {
-    id: string,
-    name: string,
+    id?: string,
+    name?: string,
     placeholder?: string,
-    initValue?: string,
-    propsFunction?: (text:string) => void,
+    value?: string,
+    onChange?: (e:React.ChangeEvent<HTMLTextAreaElement>) => void
 }
 
-const Textarea = ({id, name, placeholder, initValue="", propsFunction}:TextareaElem) => {
-    const [message, setMessage] = useState(initValue);
-
-    const handleMessage = ({target, currentTarget}:React.ChangeEvent<HTMLTextAreaElement>) => {
-        const value = currentTarget.value;
-        if(message.length > 249) {
-            if(value.length > message.length) return ;
-        }
-        setMessage(value);
-        if(propsFunction) propsFunction(value);
-    }
+const Textarea = ({id, name, placeholder, value="", onChange}:TextareaElem) => {
 
     return <>
         <div className='form_group form_group_textarea'>
@@ -27,10 +17,10 @@ const Textarea = ({id, name, placeholder, initValue="", propsFunction}:TextareaE
                 id={id}
                 name={name}
                 placeholder={placeholder}
-                value={message}
-                onChange={handleMessage}
+                value={value}
+                onChange={onChange}
             ></textarea>
-            <p>{250 - message.length}</p>
+            <p>{250 - value.length}</p>
         </div>
     </>
 }

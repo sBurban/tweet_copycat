@@ -13,9 +13,8 @@ type Tweet_listProps = {
 
 const Tweet_list = ({data,editTweet, deleteTweet}:Tweet_listProps) => {
 
-    const tweetslist = data.map((twt, i) => {
+    const tweetslist = data.map((twt) => {
         return <Tweet key={twt.id} content={twt} editTweet={editTweet} deleteTweet={deleteTweet} />
-        // return <Tweet key={i} content={twt} />
     });
 
     return (

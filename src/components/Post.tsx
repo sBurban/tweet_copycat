@@ -9,8 +9,12 @@ type PostProps = {
 const Post = ({postTweet}:PostProps) => {
     const [message, setMessage] = useState("");
 
-    const getTextValue = (text:string) => {
-        setMessage(text);
+    const handleMessage = ({target, currentTarget}:React.ChangeEvent<HTMLTextAreaElement>) => {
+        const value = currentTarget.value;
+        if(message.length > 249) {
+            if(value.length > message.length) return ;
+        }
+        setMessage(value);
     }
 
     const handleSubmit = (e:React.FormEvent<HTMLFormElement>) => {
@@ -25,8 +29,8 @@ const Post = ({postTweet}:PostProps) => {
             id="new_message"
             name="new_message"
             placeholder='My thoughts for today are...'
-            // initValue={message}
-            propsFunction={getTextValue}
+            value={message}
+            onChange={handleMessage}
         />
         <div>
             <button type="submit"

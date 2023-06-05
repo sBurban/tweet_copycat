@@ -36,8 +36,6 @@ const Tweet = ({content, editTweet,deleteTweet}:TweetProps) => {
             content={content}
             handleSubmit={handleSubmit}
             handleCancel ={handleCancel}
-            // handleSubmit={editTweet}
-            // handleDelete ={deleteTweet}
         />
     </>
     :
@@ -74,9 +72,5 @@ const Tweet = ({content, editTweet,deleteTweet}:TweetProps) => {
     </div>
     );
 }
-
-const DeleteButton = () => {
-    return <></>;
-};
 
 export default Tweet;

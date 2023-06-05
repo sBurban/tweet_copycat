@@ -71,6 +71,13 @@ html{
     background-color: var(--color-main-50);
 }
 
+/* .edit_form button{
+} */
+.edit_form .cancel_btn{
+    background-color: crimson;
+    margin-top: 0.5rem;
+}
+
 
 
 
@@ -133,7 +140,7 @@ html{
 .tweet_controls__delete{
     color: var(--color-main);
 }
-.tweet_controls__comment{
+/* .tweet_controls__comment{
 
 }
 .tweet_controls__like{
@@ -145,7 +152,7 @@ html{
 
 .tweet_timestamp{
 
-}
+} */
 
 
 
