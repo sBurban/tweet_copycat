@@ -1,68 +1,43 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo, useReducer } from 'react'
 import './App.css'
 import useTweetlist from './hooks/useTweetlist';
 
-import FormatDate from './utils/FormatDate';
+// import FormatDate from './utils/FormatDate';
 import { TweetMsg } from './common/Types';
 
 import Tweet_list from './components/Tweets/Tweet_list';
 import Post from './components/Post';
+import TweetsReducer from './store/tweetsReducer';
+import { ActionTypes } from './store/tweetsReducer';
 
 
 function App() {
   const {tweetList, error} = useTweetlist();
-  const [data, setData] = useState<TweetMsg[]>(tweetList);
+  // const [data, setData] = useState<TweetMsg[]>(tweetList);
+  const [state, dispatch] = useReducer(TweetsReducer, {data:tweetList});
 
   useEffect(() => {
-    setData(tweetList)
+    dispatch({type: ActionTypes.SET_TWEETS, data: tweetList});
   }, [tweetList.length])
-
-
-  // const [tweetList, setTweetList] = useState<TweetMsg[]>([]);
-  const default_timestamp = FormatDate();
 
 
   const addTweetToList = (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const target = e.currentTarget;
     const txtVal = target.new_message.value;
-
-    const newTweet = {
-      id: data.length,
-      name: "anonymous",
-      username: "anonymous",
-      isDeleted: false,
-      timestamp: default_timestamp,
-      message: txtVal
-    };
-    setData([ newTweet, ...data]);
+    dispatch({type: ActionTypes.ADD_TWEET, text: txtVal});
   }
 
   const editTweet = (e:React.FormEvent<HTMLFormElement>, tweet:TweetMsg) => {
     e.preventDefault();
     const target = e.currentTarget;
     const txtVal = target.edit_message.value;
-
-    const reformatList = data.map(r => {
-        if(r.id !== tweet.id) return r;
-        return {
-          ...tweet,
-          message: txtVal
-        }
-    });
-    setData(reformatList)
+    dispatch({type: ActionTypes.EDIT_TWEET, tweet, text: txtVal});
   }
 
   const deleteTweet = (e:React.MouseEvent<HTMLButtonElement|HTMLDivElement>, tweet:TweetMsg) => {
     e.preventDefault();
-    console.log(e);
-    console.log(tweet);
-
-    const reformatList = data.filter(r => {
-        if(r.id !== tweet.id) return true;
-        return false;
-    });
-    setData(reformatList)
+    dispatch({type: ActionTypes.DELETE_TWEET, id: tweet.id});
   }
 
 
@@ -70,7 +45,7 @@ function App() {
     <div className='app_body'>
       <Post postTweet={addTweetToList} />
       <Tweet_list
-        data={data}
+        data={state.data}
         editTweet={editTweet}
         deleteTweet={deleteTweet}
       />
