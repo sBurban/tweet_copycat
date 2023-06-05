@@ -6,8 +6,7 @@ import { TweetMsg } from './common/Types';
 
 import Tweet_list from './components/Tweets/Tweet_list';
 import Post from './components/Post';
-import TweetsReducer from './store/tweetsReducer';
-import { ActionTypes } from './store/tweetsReducer';
+import TweetsReducer, { ActionTypes } from './store/TweetsReducer';
 
 
 function App() {
