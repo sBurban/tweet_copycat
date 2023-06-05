@@ -1,42 +1,190 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+html{
+    --color-main: #2745f3e0;
+    --color-main-50: #788cff7d;
+    --color-main-90: #788cff7d;
+    --color-secondary: #333;
+
+    --color-tertiary: #f0f0f0;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.app_body{
+    width: 60%;
+    margin: 0 auto;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+
+
+.tweet_form{
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    border: 1px solid var(--color-tertiary);
+    padding: 1rem 1rem 0.5rem 1rem;
+}
+.form_group{
+    width: 100%;
+}
+.form_group_textarea textarea,
+.form_group textarea{
+    width: 100%;
+    height: 100px;
+    resize: none;
+    min-width: 250px;
+    background-color: #ffeeaa6b;
+    border: none;
+    border-radius: 0.3rem;
+    padding-left: 0.5rem;
+    color: var(--color-secondary);
+}
+.form_group_textarea textarea::placeholder,
+.form_group textarea::placeholder{
+    color: lightgray;
+}
+.form_group_textarea textarea:focus,
+.form_group textarea:focus{
+    box-shadow: 0 0 1rem 0 var(--color-main);
+    outline: none;
+}
+.form_group_textarea p{
+    color: var(--color-main);
+    font-size: 1rem;
+    padding: 0;
+    margin: 0;
+    text-align: right;
+}
+.tweet_form button{
+    width: 100px;
+    height: 40px;
+    margin-left: 1rem;
+    border-radius: 0.4rem;
+    background-color: var(--color-main);
+    color: #fff;
+    font-size: 1.2rem;
+    border: none
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.tweet_form button:hover:not(:disabled){
+    border: 0.2rem solid var(--color-secondary);
+}
+.tweet_form button:disabled{
+    background-color: var(--color-main-50);
 }
 
-.card {
-  padding: 2em;
+/* .edit_form button{
+} */
+.edit_form .cancel_btn{
+    background-color: crimson;
+    margin-top: 0.5rem;
 }
 
-.read-the-docs {
-  color: #888;
+
+
+
+.tweets_wrapper{
+    border: 1px solid var(--color-tertiary);
+}
+.tweet{
+    border: 1px solid var(--color-tertiary);
+    padding: 0.5rem 0.8rem;
+}
+.tweet_header{
+    text-align: left;
+    padding-left: 0.5rem;
+}
+.tweet_header > *{
+    vertical-align: middle;
+}
+.tweet_header svg{
+    font-size: 1.6rem;
+
+}
+.tweet_header .tweet_name{
+    padding: 0;
+    margin: 0 0.2rem 0 0.5rem;
+}
+
+
+.tweet_body{
+    word-wrap: break-word;
+}
+.tweet_controls{
+    display: flex;
+    justify-content: space-between;
+}
+.tweet_controls__group{
+    display: flex;
+    justify-content: space-around;
+}
+
+.tweet_name{
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+.tweet_username{
+    font-size: 1.2rem;
+    color: rgb(93, 89, 89);
+}
+
+.tweet_controls__icon{
+    font-size: 1.2rem;
+    padding: 0.2rem;
+    margin: 0 0.5rem;
+    color: var(--color-secondary);
+}
+
+.tweet_controls__edit{
+    margin: 0 0.5rem 0 1rem;
+    color: var(--color-main);
+}
+.tweet_controls__delete{
+    color: var(--color-main);
+}
+/* .tweet_controls__comment{
+
+}
+.tweet_controls__like{
+
+}
+.tweet_controls__share{
+
+}
+
+.tweet_timestamp{
+
+} */
+
+
+
+
+.loader{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    padding: 2rem;
+    margin: 0 auto;
+    color: var(--color-main);
+    font-size: 1.6rem;
+}
+.loader > *{
+    margin: 0 auto;
+}
+.loader p{
+    padding: 2rem 0 0 0;
+}
+.spinner{
+    padding: 20px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    outline: 1rem dotted var(--color-main);
+    animation: rotation 3s linear infinite;
+    /* animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite; */
+}
+
+@keyframes rotation {
+    from{ rotate: 0deg; }
+    to{ rotate: 360deg;}
 }
